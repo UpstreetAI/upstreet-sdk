@@ -28,6 +28,8 @@ The SDK is available for Javascript and Python. The following documentation is f
 
 ## Javascript Documentation
 
+### Installation
+
 ```sh
 npm install upstreet
 ```
