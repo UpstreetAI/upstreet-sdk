@@ -1,4 +1,11 @@
-# Upstreet
+# Upstreet <a href="https://discord.gg/dRJ2ba46MJ"><img style="float: right" src="https://dcbadge.vercel.app/api/server/dRJ2ba46MJ" alt=""></a> <a href="https://github.com/avaer/upstreet/stargazers"><img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/avaer/upstreet?style=social" alt=""></a>
+
+<img src="resources/image1.jpg" width=100% />
+
+[![Lint and Test](https://github.com/AutonomousResearchGroup/agentmemory/actions/workflows/test.yml/badge.svg)](https://github.com/AutonomousResearchGroup/agentmemory/actions/workflows/test.yml)
+[![PyPI version](https://badge.fury.io/py/agentmemory.svg)](https://badge.fury.io/py/agentmemory)
+[![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/AutonomousResearchGroup/easycompletion/blob/main/LICENSE)
+[![forks - easycompletion](https://img.shields.io/github/forks/AutonomousResearchGroup/easycompletion?style=social)](https://github.com/AutonomousResearchGroup/easycompletion)
 
 The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.
 
@@ -17,8 +24,6 @@ from upstreet import Agent
 agent = Agent()
 agent.speak("Hello world from python agent!")
 ```
-
-<img src="resources/image1.jpg" width=100% />
 
 # Documentation
 
@@ -210,7 +215,8 @@ else:
 ```
 
 ## Member of M3 Metaverse Makers
-https://3d.m3org.com/
-<img src="resources/m3.jpg" width=100% />
+<a href="https://3d.m3org.com/">
+  <img src="./resources/m3.jpg" width=100% />
+</a>
 
-
+<img src="resources/image2.jpg" width=100% />
