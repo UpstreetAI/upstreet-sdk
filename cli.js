@@ -1,11 +1,10 @@
 import repl from 'repl';
-import {agents} from './index.js';
+import {Agent} from './index.js';
 
 const test = async () => {
   const customEval = (cmd, context, filename, callback) => {
     cmd = cmd.replace(/\n+$/, '');
     const match = cmd.match(/^\/(\S+)\s*([\s\S]*)$/);
-    // console.log('match', [cmd, match]);
     if (match) {
       const [_, command, commandArgumentsString] = match;
       const commandArguments = commandArgumentsString.split(/\s+/);
@@ -32,7 +31,8 @@ const test = async () => {
     // callback(null, '');
   };
 
-  const connection = await agents.connect();
+  const agent = new Agent();
+  const connection = await agent.connect();
 
   // Run a repl with custom evaluation
   const r = repl.start({
