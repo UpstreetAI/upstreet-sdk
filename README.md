@@ -2,8 +2,7 @@
 
 <img src="resources/image1.jpg" width=100% />
 
-[![Lint and Test](https://github.com/avaer/upstreet/actions/workflows/test.yml/badge.svg)](https://github.com/avaer/upstreet/actions/workflows/test.yml)[![npm version](https://img.shields.io/npm/v/upstreet.svg)](https://www.npmjs.com/package/upstreet/app)
-[![PyPI version](https://badge.fury.io/py/upstreet.svg)](https://badge.fury.io/py/upstreet)
+[![Lint and Test](https://github.com/avaer/upstreet/actions/workflows/test.yml/badge.svg)](https://github.com/avaer/upstreet/actions/workflows/test.yml)[![npm version](https://img.shields.io/npm/v/upstreet.svg)](https://www.npmjs.com/package/upstreet/app)[![PyPI version](https://badge.fury.io/py/upstreet.svg)](https://badge.fury.io/py/upstreet)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/avaer/upstreet/blob/main/LICENSE)
 [![forks - upstreet](https://img.shields.io/github/forks/avaer/upstreet?style=social)](https://github.com/avaer/upstreet)
 
@@ -24,6 +23,7 @@ agent.speak("Hello world from python agent!")
 ```
 
 # Documentation
+
 The SDK is available for Javascript and Python. The following documentation is for both languages.
 
 ## Javascript Documentation
@@ -67,13 +67,15 @@ if (agent.checkConnection()) {
 }
 ```
 
-### Sending a Speech Message
+### Sending a Chat Message
 
 ```javascript
 agent.speak("I'm happy to be here!");
 ```
 
 ### Sending an Emote
+
+Available emotes are 'alert', 'angry', 'embarassed', 'headNod', 'headShake', 'sad', 'surprise', 'victory'
 
 ```javascript
 agent.emote("smiles warmly");
@@ -86,6 +88,8 @@ agent.sendMessageWithEmote("laughs", "That's funny!");
 ```
 
 ### Setting an Emotion
+
+Emotions are general moods that color the character's perspective. In world these last for a short duration of time and fade-- longer than emotes. Available emotions are 'neutral', 'joy', 'sorrow', 'angry', 'fun', and 'surprise'. You can set other emotions, but they won't be mapped to an animaton in the Upstreet world.
 
 ```javascript
 agent.setEmotion("joyful");
@@ -158,19 +162,15 @@ else:
     print("Agent is not connected.")
 ```
 
-### Sending a Message
-
-```python
-agent.send_message(command="say", message="Hello, Upstreet!")
-```
-
-### Sending a Speech Message
+### Sending a Chat Message
 
 ```python
 agent.speak("I'm happy to be here!")
 ```
 
 ### Sending an Emote
+
+Emotes are short expressions the character makes in-world. Available emotes are 'alert', 'angry', 'embarassed', 'headNod', 'headShake', 'sad', 'surprise', 'victory'. You can set others, but they will not play in the Upstreet world.
 
 ```python
 agent.emote("smiles warmly")
@@ -183,6 +183,8 @@ agent.send_message_with_emote(emote="laughs", message="That's funny!")
 ```
 
 ### Setting an Emotion
+
+Emotions are general moods that color the character's perspective. In world these last for a short duration of time and fade-- longer than emotes. Available emotions are 'neutral', 'joy', 'sorrow', 'angry', 'fun', and 'surprise'. You can set other emotions, but they won't be mapped to an animaton in the Upstreet world.
 
 ```python
 agent.set_emotion("joyful")
@@ -216,8 +218,12 @@ else:
 ```
 
 ## Member of M3 Metaverse Makers
+
 <a href="https://3d.m3org.com/">
   <img src="./resources/m3.jpg" width=100% />
+  <br />
+  <center>https://m3org.com/</center>
 </a>
+<br />
 
 <img src="resources/image2.jpg" width=100% />
