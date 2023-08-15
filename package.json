@@ -1,6 +1,6 @@
 {
   "name": "upstreet",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "",
   "main": "index.js",
   "type": "module",
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@supabase/supabase-js": "^2.32.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "playwright": "^1.37.0"
   }
 }

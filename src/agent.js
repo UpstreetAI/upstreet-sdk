@@ -1,30 +1,105 @@
-import dotenv from 'dotenv';
-import { createClient } from '@supabase/supabase-js';
-import { Agent as AgentClient } from './agent-client.js';
+import { chromium } from 'playwright';
 
-dotenv.config();
-const SUPABASE_URL = process.env.VITE_SUPABASE_URL || "https://friddlbqibjnxjoxeocc.supabase.co";
-const SUPABASE_PUBLIC_API_KEY = process.env.VITE_SUPABASE_PUBLIC_API_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaWRkbGJxaWJqbnhqb3hlb2NjIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODkwNjMxMjcsImV4cCI6MjAwNDYzOTEyN30.cP4pmsmvztz-In-xHxVGXpjU-2vEnNKxxKiGV2R7irw";
+export class Agent {
+    browser = null;
+    page = null;
+    async connect() {
+        if (this.browser) {
+            console.warn('Already connected to agent. Skipping connection.');
+            return true;
+        }
+        try {
+            this.browser = await chromium.launch();
+            this.page = await this.browser.newPage();
+            await this.page.goto('https://upstreet.ai/g');
+        } catch (error) {
+            console.error('An error occurred while connecting:', error);
+        }
 
-export class Agent extends AgentClient {
-  constructor(spec) {
-    const {
-      supabaseUrl = SUPABASE_URL,
-      supabasePublicApiKey = SUPABASE_PUBLIC_API_KEY,
-    } = spec ?? {};
+        function readChat({
+            playerName,
+            playerId,
+            command,
+            commandArgument,
+            message,
+        }) {
+            this.emit('message', {
+                playerName,
+                playerId,
+                command,
+                commandArgument,
+                message,
+            });
+        }
 
-    const supabaseClient = createClient(
-      supabaseUrl,
-      supabasePublicApiKey,
-      {
-        auth: {
-          persistSession: false,
-        },
-      }
-    );
-    super(supabaseClient);
-  }
-  async connect() {
-    return await super.connect();
-  }
+        await this.page.exposeFunction('readChat', readChat.bind(this));
+    }
+
+
+    async disconnect() {
+        if (!this.browser) {
+            console.warn('Not connected to agent. Skipping disconnection.');
+        }
+        await this.browser.close();
+    }
+
+    checkConnection() {
+        if (!this.browser) {
+            console.warn('Not connected to agent. Skipping message.');
+            return false;
+        }
+        if (!this.page) {
+            console.warn("The page was closed in the browser. Skipping message.");
+            return false;
+        }
+        return true;
+    }
+
+    async sendMessage({
+        command,
+        commandArgument,
+        message,
+    }) {
+        if (!this.checkConnection()) return;
+        await this.page.evaluate((command, commandArgument, message) => {
+            return globalThis.writeChat({ command, commandArgument, message });
+        }, command, commandArgument, message);
+    }
+
+    async speak(message) {
+        sendMessage({
+            command: 'SPEAK',
+            message,
+        })
+    }
+
+    async emote(emote) {
+        sendMessage({
+            command: 'EMOTE',
+            commandArgument: emote,
+        })
+    }
+
+    async sendMessageWithEmote(emote, message) {
+        sendMessage({
+            command: 'EMOTE',
+            commandArgument: emote,
+            message,
+        })
+    }
+
+    async setEmotion(emotion) {
+        sendMessage({
+            command: 'EMOTION',
+            commandArgument: emotion,
+        })
+    }
+
+    async sendMessageWithEmotion(message, emotion) {
+        sendMessage({
+            command: 'EMOTION',
+            commandArgument: emotion,
+            message,
+        })
+    }
 }
