@@ -222,8 +222,9 @@ else:
 <a href="https://3d.m3org.com/">
   <img src="./resources/m3.jpg" width=100% />
   <br />
-  <center>https://m3org.com/</center>
 </a>
+<div align="center"><a href="https://3d.m3org.com/">https://m3org.com/</a></div>
+
 <br />
 
 <img src="resources/image2.jpg" width=100% />
