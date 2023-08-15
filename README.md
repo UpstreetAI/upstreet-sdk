@@ -3,9 +3,11 @@
 <img src="resources/image1.jpg" width=100% />
 
 [![Lint and Test](https://github.com/avaer/upstreet/actions/workflows/test.yml/badge.svg)](https://github.com/avaer/upstreet/actions/workflows/test.yml)
+
+[![npm version](https://img.shields.io/npm/v/upstreet.svg)](https://www.npmjs.com/package/upstreet/app)
 [![PyPI version](https://badge.fury.io/py/upstreet.svg)](https://badge.fury.io/py/upstreet)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/avaer/upstreet/blob/main/LICENSE)
-[![forks - upstret](https://img.shields.io/github/forks/avaer/upstreet?style=social)](https://github.com/avaer/upstreet)
+[![forks - upstreet](https://img.shields.io/github/forks/avaer/upstreet?style=social)](https://github.com/avaer/upstreet)
 
 The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.
 
