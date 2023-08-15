@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import {agents as agentsClient} from './clients/agents.js';
 
 dotenv.config();
 const SUPABASE_URL = process.env.VITE_SUPABASE_URL || "https://friddlbqibjnxjoxeocc.supabase.co";
@@ -9,7 +10,7 @@ class Agents {
     supabaseUrl = SUPABASE_URL,
     supabasePublicApiKey = SUPABASE_PUBLIC_API_KEY,
   } = {}) {
-    return AgentsClient.connect({
+    return agentsClient.connect({
       supabaseUrl,
       supabasePublicApiKey,
     });
