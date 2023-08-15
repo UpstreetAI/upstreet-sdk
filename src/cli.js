@@ -2,7 +2,7 @@ import repl from 'repl';
 import { Agent } from './index.js';
 
 const test = async () => {
-  const customEval = (cmd, context, filename, callback) => {
+  const customEval = (cmd) => {
     cmd = cmd.replace(/\n+$/, '');
     const match = cmd.match(/^\/(\S+)\s*([\s\S]*)$/);
     if (match) {
@@ -28,7 +28,6 @@ const test = async () => {
         },
       });
     }
-    // callback(null, '');
   };
 
   const agent = new Agent();
@@ -36,16 +35,12 @@ const test = async () => {
 
   // Run a repl with custom evaluation
   const r = repl.start({
-    // prompt: '> ',
     prompt: '',
     eval: customEval
   });
   r.context.connection = connection;
 
-  connection.addEventListener('chat', (e) => {
-    console.log(e.data);
-  });
-  connection.addEventListener('json', (e) => {
+  connection.addEventListener('message', (e) => {
     console.log(e.data);
   });
 };
