@@ -41,6 +41,8 @@ export class Agent {
             console.warn('Not connected to agent. Skipping disconnection.');
         }
         await this.browser.close();
+        this.page = null;
+        this.browser = null;
     }
 
     checkConnection() {
@@ -61,27 +63,31 @@ export class Agent {
         message,
     }) {
         if (!this.checkConnection()) return;
-        await this.page.evaluate((command, commandArgument, message) => {
-            return globalThis.writeChat({ command, commandArgument, message });
-        }, command, commandArgument, message);
+        await this.page.evaluate(({command, commandArgument, message}) => {
+            if (!globalThis.writeChat) { // Uncommenting this check
+                console.warn('The globalThis.writeChat function does not exist. Skipping message.');
+                return;
+            }
+            return globalThis.writeChat({ command, commandArgument, message }); // Calling as globalThis.writeChat
+        }, {command, commandArgument, message});
     }
 
     async speak(message) {
-        sendMessage({
+        await this.sendMessage({
             command: 'SPEAK',
             message,
         })
     }
 
     async emote(emote) {
-        sendMessage({
+        await this.sendMessage({
             command: 'EMOTE',
             commandArgument: emote,
         })
     }
 
     async sendMessageWithEmote(emote, message) {
-        sendMessage({
+        await this.sendMessage({
             command: 'EMOTE',
             commandArgument: emote,
             message,
@@ -89,14 +95,14 @@ export class Agent {
     }
 
     async setEmotion(emotion) {
-        sendMessage({
+        await this.sendMessage({
             command: 'EMOTION',
             commandArgument: emotion,
         })
     }
 
     async sendMessageWithEmotion(message, emotion) {
-        sendMessage({
+        await this.sendMessage({
             command: 'EMOTION',
             commandArgument: emotion,
             message,
