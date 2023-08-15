@@ -2,10 +2,10 @@
 
 <img src="resources/image1.jpg" width=100% />
 
-[![Lint and Test](https://github.com/AutonomousResearchGroup/agentmemory/actions/workflows/test.yml/badge.svg)](https://github.com/AutonomousResearchGroup/agentmemory/actions/workflows/test.yml)
-[![PyPI version](https://badge.fury.io/py/agentmemory.svg)](https://badge.fury.io/py/agentmemory)
-[![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/AutonomousResearchGroup/easycompletion/blob/main/LICENSE)
-[![forks - easycompletion](https://img.shields.io/github/forks/AutonomousResearchGroup/easycompletion?style=social)](https://github.com/AutonomousResearchGroup/easycompletion)
+[![Lint and Test](https://github.com/avaer/upstreet/actions/workflows/test.yml/badge.svg)](https://github.com/avaer/upstreet/actions/workflows/test.yml)
+[![PyPI version](https://badge.fury.io/py/upstreet.svg)](https://badge.fury.io/py/upstreet)
+[![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/avaer/upstreet/blob/main/LICENSE)
+[![forks - upstret](https://img.shields.io/github/forks/avaer/upstreet?style=social)](https://github.com/avaer/upstreet)
 
 The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.
 
