@@ -48,4 +48,11 @@ test.describe('Agent class', () => {
         await agent.sendMessageWithEmotion('test message', 'happy');
         expect(mockWriteChat).toHaveBeenCalledWith({ command: 'EMOTION', commandArgument: 'happy', message: 'test message' });
     });
+
+    test('should move to a target', async () => {
+        const mockWriteChat = jest.fn();
+        await agent.page.exposeFunction('writeChat', mockWriteChat);
+        await agent.moveTo('Cafe');
+        expect(mockWriteChat).toHaveBeenCalledWith({ command: 'MOVETO', commandArgument: 'Cafe' });
+    });    
 });

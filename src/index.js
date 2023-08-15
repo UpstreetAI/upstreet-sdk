@@ -169,4 +169,22 @@ export class Agent {
             message,
         })
     }
+
+    /**
+     * Moves to a target. The target can be a player name, thing or id.
+     * If the engine cannot find the player or thing by name or ID it will return the most similar match.
+     * @async
+     * @param {string} target - The target name or ID.
+     * @returns {Promise<void>} Resolves when the agent moves to the target.
+     * @example
+     * await agent.moveTo('player1');
+     * await agent.moveTo('thing1');
+     * await agent.moveTo('123456');
+     */
+    async moveTo(target){
+        await this.sendMessage({
+            command: 'MOVETO',
+            commandArgument: target,
+        })
+    }
 }

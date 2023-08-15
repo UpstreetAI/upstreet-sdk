@@ -67,5 +67,10 @@ class TestAgent(unittest.TestCase):
         self.agent.send_message_with_emotion("Hello", "happy")
         self.agent.send_message.assert_called_once_with("EMOTION", commandArgument="happy", message="Hello")
 
+    def test_move_to(self):
+        self.agent.send_message = MagicMock()
+        self.agent.move_to(target="Cafe")
+        self.agent.send_message.assert_called_once_with("MOVETO", commandArgument="Cafe")
+
 if __name__ == "__main__":
     unittest.main()
