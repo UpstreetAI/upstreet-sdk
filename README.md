@@ -2,180 +2,215 @@
 
 The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.
 
-## Installation
+The SDK is available for Javascript and Python.
 
-`upstreet` is available for JS and Python.
+## Quickstart
 
-### Javascript
+```js
+import { Agent } from "upstreet";
+const agent = new Agent();
+agent.speak("Hello world from js agent!");
+```
+
+```python
+from upstreet import Agent
+agent = Agent()
+agent.speak("Hello world from python agent!")
+```
+
+<img src="resources/image1.jpg" width=100% />
+
+# Documentation
+
+## Javascript
 
 ```sh
 npm install upstreet
 ```
 
-### Python
+### Connecting to Upstreet
+
+```javascript
+import { Agent } from "upstreet";
+
+const agent = new Agent();
+agent.connect().then((connected) => {
+  if (connected) {
+    console.log("Connected to Upstreet!");
+  } else {
+    console.log("Failed to connect.");
+  }
+});
+```
+
+### Disconnecting from Upstreet
+
+```javascript
+agent.disconnect().then(() => {
+  console.log("Disconnected from Upstreet.");
+});
+```
+
+### Checking Connection
+
+```javascript
+if (agent.checkConnection()) {
+  console.log("Agent is connected.");
+} else {
+  console.log("Agent is not connected.");
+}
+```
+
+### Sending a Speech Message
+
+```javascript
+agent.speak("I'm happy to be here!");
+```
+
+### Sending an Emote
+
+```javascript
+agent.emote("smiles warmly");
+```
+
+### Sending a Message with an Emote
+
+```javascript
+agent.sendMessageWithEmote("laughs", "That's funny!");
+```
+
+### Setting an Emotion
+
+```javascript
+agent.setEmotion("joyful");
+```
+
+### Sending a Message with an Emotion
+
+```javascript
+agent.sendMessageWithEmotion("I love Upstreet!", "excited");
+```
+
+### Full Interaction Example
+
+You can combine the above examples for a full interaction with the Upstreet multiplayer world:
+
+```javascript
+import { Agent } from "upstreet";
+
+const agent = new Agent();
+agent.connect().then((connected) => {
+  if (connected) {
+    console.log("Connected to Upstreet!");
+    agent.speak("Hello, Upstreet!");
+    agent.emote("waves");
+    agent.sendMessageWithEmote("smiles", "I'm enjoying my time here!");
+    agent.setEmotion("happy");
+    agent.sendMessageWithEmotion("See you soon!", "content");
+    agent.disconnect().then(() => {
+      console.log("Disconnected from Upstreet.");
+    });
+  } else {
+    console.log("Failed to connect.");
+  }
+});
+```
+
+## Python Documentation
+
+### Installation
 
 ```sh
 pip install upstreet
 ```
 
-## Javacript Documentation
-
-Create an instance of the `Agent` class and use its methods to interact.
-
-```javascript
-const agent = new Agent();
-await agent.connect();
-await agent.speak("Hello, world!");
-await agent.disconnect();
-```
-
-### Class: `Agent`
-
-#### Properties
-
-- `browser`: The browser instance, can be `null`.
-- `page`: The page instance, can be `null`.
-
-#### Method: `connect`
-
-Connects the agent to the Upstreet multiplayer world.
-
-- **Returns**: `Promise<boolean>` Returns true if already connected; otherwise, establishes a new connection.
-- **Throws**: Will throw an error if the connection fails.
-
-#### Method: `disconnect`
-
-Disconnects the agent from the Upstreet multiplayer world.
-
-#### Method: `checkConnection`
-
-Checks if the agent is connected.
-
-- **Returns**: `boolean` True if connected, false otherwise.
-
-#### Method: `sendMessage`
-
-Sends a message to the Upstreet multiplayer world.
-
-- **Parameters**: `options` (Object)
-  - `command` (string): The command to execute.
-  - `commandArgument` (string, optional): Additional argument for the command.
-  - `message` (string, optional): The message text.
-- **Returns**: `Promise<void>` Resolves when the message is sent.
-
-#### Method: `speak`
-
-Sends a speech message.
-
-- **Parameters**: `message` (string): The speech text.
-- **Returns**: `Promise<void>` Resolves when the speech message is sent.
-
-#### Method: `emote`
-
-Sends an emote.
-
-- **Parameters**: `emote` (string): The emote text.
-- **Returns**: `Promise<void>` Resolves when the emote is sent.
-
-#### Method: `sendMessageWithEmote`
-
-Sends a message with an emote.
-
-- **Parameters**:
-  - `emote` (string): The emote text.
-  - `message` (string): The message text.
-- **Returns**: `Promise<void>` Resolves when the message with emote is sent.
-
-#### Method: `setEmotion`
-
-Sets an emotion.
-
-- **Parameters**: `emotion` (string): The emotion text.
-- **Returns**: `Promise<void>` Resolves when the emotion is set.
-
-#### Method: `sendMessageWithEmotion`
-
-Sends a message with an emotion.
-
-- **Parameters**:
-  - `message` (string): The message text.
-  - `emotion` (string): The emotion text.
-- **Returns**: `Promise<void>` Resolves when the message with emotion is sent.
-
-## Python Documentation
-
-Create an instance of the `Agent` class and use its methods to interact with the Upstreet multiplayer world.
+### Connecting to Upstreet
 
 ```python
+from upstreet import Agent
+
 agent = Agent()
-agent.connect()
-agent.speak("Hello, Upstreet!")
-agent.disconnect()
+if agent.connect():
+    print("Connected to Upstreet!")
+else:
+    print("Failed to connect.")
 ```
 
-### Class: `Agent`
+### Disconnecting from Upstreet
 
-#### Methods
+```python
+agent.disconnect()
+print("Disconnected from Upstreet.")
+```
 
-##### `__init__()`
+### Checking Connection
 
-Constructor that initializes the agent object.
+```python
+if agent.check_connection():
+    print("Agent is connected.")
+else:
+    print("Agent is not connected.")
+```
 
-##### `connect()`
+### Sending a Message
 
-Connects the agent to the Upstreet multiplayer world.
+```python
+agent.send_message(command="say", message="Hello, Upstreet!")
+```
 
-- **Returns**: `True` if already connected or successfully connected, `False` otherwise.
+### Sending a Speech Message
 
-##### `disconnect()`
+```python
+agent.speak("I'm happy to be here!")
+```
 
-Disconnects the agent from the Upstreet multiplayer world.
+### Sending an Emote
 
-##### `check_connection()`
+```python
+agent.emote("smiles warmly")
+```
 
-Checks if the agent is connected.
+### Sending a Message with an Emote
 
-- **Returns**: `True` if connected, `False` otherwise.
+```python
+agent.send_message_with_emote(emote="laughs", message="That's funny!")
+```
 
-##### `send_message(command, commandArgument=None, message=None)`
+### Setting an Emotion
 
-Sends a message to the Upstreet multiplayer world.
+```python
+agent.set_emotion("joyful")
+```
 
-- **Parameters**:
-  - `command` (str): The command to execute.
-  - `commandArgument` (str, optional): Additional argument for the command.
-  - `message` (str, optional): The message text.
+### Sending a Message with an Emotion
 
-##### `speak(message)`
+```python
+agent.send_message_with_emotion(message="I love Upstreet!", emotion="excited")
+```
 
-Sends a speech message.
+### Full Interaction Example
 
-- **Parameters**: `message` (str): The speech text.
+You can combine the above examples for a full interaction with the Upstreet multiplayer world:
 
-##### `emote(emote)`
+```python
+from upstreet import Agent
 
-Sends an emote.
+agent = Agent()
+if agent.connect():
+    print("Connected to Upstreet!")
+    agent.speak("Hello, Upstreet!")
+    agent.emote("waves")
+    agent.send_message_with_emote(emote="smiles", message="I'm enjoying my time here!")
+    agent.set_emotion("happy")
+    agent.send_message_with_emotion(message="See you soon!", emotion="content")
+    agent.disconnect()
+    print("Disconnected from Upstreet.")
+else:
+    print("Failed to connect.")
+```
 
-- **Parameters**: `emote` (str): The emote text.
+## Member of M3 Metaverse Makers
+https://3d.m3org.com/
+<img src="resources/m3.jpg" width=100% />
 
-##### `send_message_with_emote(emote, message)`
 
-Sends a message with an emote.
-
-- **Parameters**:
-  - `emote` (str): The emote text.
-  - `message` (str): The message text.
-
-##### `set_emotion(emotion)`
-
-Sets an emotion.
-
-- **Parameters**: `emotion` (str): The emotion text.
-
-##### `send_message_with_emotion(message, emotion)`
-
-Sends a message with an emotion.
-
-- **Parameters**:
-  - `message` (str): The message text.
-  - `emotion` (str): The emotion text.
