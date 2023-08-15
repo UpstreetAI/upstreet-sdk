@@ -7,19 +7,24 @@ const SUPABASE_PUBLIC_API_KEY = process.env.VITE_SUPABASE_PUBLIC_API_KEY || "eyJ
 
 class Agents {
   static async connect() {
-    const clientA = createClient(SUPABASE_URL, SUPABASE_PUBLIC_API_KEY);
-    const channelA = clientA.channel('room-1');
-    channelA
+    const client = createClient(SUPABASE_URL, SUPABASE_PUBLIC_API_KEY, {
+      auth: {
+        persistSession: false,
+      },
+    });
+    const c = client.channel('room-1');
+    c
       .on(
         'broadcast',
         {
           event: 'test',
         },
         (payload) => {
-          console.log(payload);
+          console.log('got payload', payload);
         },
       )
       .subscribe();
+    return c;
   }
 }
 export const agents = Agents;
