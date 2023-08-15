@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "cli": "cli.js"
   },
   "author": "",
   "license": "ISC",
