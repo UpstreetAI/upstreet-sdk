@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "cli": "cli.js"
+    "cli": "node cli.js"
   },
   "author": "",
   "license": "ISC",
