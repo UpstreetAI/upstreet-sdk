@@ -1,0 +1,1 @@
+from upstreet.agents.tests import *
