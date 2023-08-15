@@ -36,6 +36,9 @@ const agent = new Agent({ apiKey: UPSTREET_API_KEY });
 
 
 
+```
+
+
 Input stream
  Local character position update
  Nearby objects/characters enter/exit range

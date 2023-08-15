@@ -1,5 +1,5 @@
 import repl from 'repl';
-import {Agent} from './index.js';
+import { Agent } from './index.js';
 
 const test = async () => {
   const customEval = (cmd, context, filename, callback) => {

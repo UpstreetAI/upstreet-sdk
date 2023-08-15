@@ -1,1 +1,1 @@
-from upstreet.agents.tests import *
+from upstreet.tests import *
