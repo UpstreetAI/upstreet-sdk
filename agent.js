@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import {createClient} from '@supabase/supabase-js';
-import {Agent as AgentClient} from './clients/agent.js';
+import {Agent as AgentClient} from './client/agent.js';
 
 dotenv.config();
 const SUPABASE_URL = process.env.VITE_SUPABASE_URL || "https://friddlbqibjnxjoxeocc.supabase.co";
