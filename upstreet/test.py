@@ -1,1 +1,0 @@
-from upstreet.tests import *
