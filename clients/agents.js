@@ -1,19 +1,6 @@
-import {createClient} from '@supabase/supabase-js';
-
 class Agents {
-  static async connect({
-    supabaseUrl,
-    supabasePublicApiKey,
-  }) {
-    const client = createClient(supabaseUrl, supabasePublicApiKey, {
-      auth: {
-        persistSession: false,
-      },
-    });
-    // client gets bastardized inheritance of the methods from EventEmitter
-    // https://nodejs.org/api/events.html#events_class_eventemitter
-
-    const c = client.channel('room-1');
+  static async connect(supabaseClient) {
+    const c = supabaseClient.channel('room-1');
     c
       .on(
         'broadcast',

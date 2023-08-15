@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import {createClient} from '@supabase/supabase-js';
 import {agents as agentsClient} from './clients/agents.js';
 
 dotenv.config();
@@ -10,10 +11,12 @@ class Agents {
     supabaseUrl = SUPABASE_URL,
     supabasePublicApiKey = SUPABASE_PUBLIC_API_KEY,
   } = {}) {
-    return agentsClient.connect({
-      supabaseUrl,
-      supabasePublicApiKey,
+    const supabaseClient = createClient(supabaseUrl, supabasePublicApiKey, {
+      auth: {
+        persistSession: false,
+      },
     });
+    return agentsClient.connect(supabaseClient);
   }
 }
 export const agents = Agents;
