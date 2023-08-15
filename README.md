@@ -9,8 +9,6 @@
 
 The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.
 
-The SDK is available for Javascript and Python.
-
 ## Quickstart
 
 ```js
@@ -26,8 +24,9 @@ agent.speak("Hello world from python agent!")
 ```
 
 # Documentation
+The SDK is available for Javascript and Python. The following documentation is for both languages.
 
-## Javascript
+## Javascript Documentation
 
 ```sh
 npm install upstreet
