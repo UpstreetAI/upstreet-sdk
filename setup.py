@@ -8,15 +8,11 @@ with open("README.md", "r") as fh:
     long_description = [line for line in long_description if not "<img" in line]
     long_description = "\n".join(long_description)
 
-with open("package.json", "r") as f:
-    package = json.load(f)
-    version = package["version"]
-
 install_requires = []
 
 setup(
     name="upstreet",
-    version=version,
+    version="1.9.0",
     description="SDK for interacting with Upstreet.",
     long_description=long_description,  # added this line
     long_description_content_type="text/markdown",  # and this line
@@ -26,7 +22,6 @@ setup(
     license="MIT",
     packages=["upstreet"],
     install_requires=install_requires,
-    readme="README.md",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Science/Research",
