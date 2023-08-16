@@ -1,9 +1,9 @@
-# Upstreet SDK <a href="https://discord.gg/dRJ2ba46MJ"><img style="float: right" src="https://dcbadge.vercel.app/api/server/dRJ2ba46MJ" alt=""></a> <a href="https://github.com/avaer/upstreet/stargazers"><img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/avaer/upstreet?style=social" alt=""></a>
+# Upstreet SDK <a href="https://discord.gg/dRJ2ba46MJ"><img style="float: right" src="https://dcbadge.vercel.app/api/server/dRJ2ba46MJ" alt=""></a> <a href="https://github.com/M3-org/upstreet-sdk/stargazers"><img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/M3-org/upstreet-sdk?style=social" alt=""></a>
 
 <img src="resources/image1.jpg" width=100% />
 <p>
-  <a href="https://github.com/avaer/upstreet/actions/workflows/test.yml">
-    <img src="https://github.com/avaer/upstreet/actions/workflows/test.yml/badge.svg" alt="Lint and Test">
+  <a href="https://github.com/M3-org/upstreet-sdk/actions/workflows/test.yml">
+    <img src="https://github.com/M3-org/upstreet-sdk/actions/workflows/test.yml/badge.svg" alt="Lint and Test">
   </a>
   <a href="https://www.npmjs.com/package/upstreet/app">
     <img src="https://img.shields.io/npm/v/upstreet.svg" alt="npm version">
@@ -11,11 +11,11 @@
   <a href="https://badge.fury.io/py/upstreet">
     <img src="https://badge.fury.io/py/upstreet.svg" alt="PyPI version">
   </a>
-  <a href="https://github.com/avaer/upstreet/blob/main/LICENSE">
+  <a href="https://github.com/M3-org/upstreet-sdk/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-blue" alt="License">
   </a>
-  <a href="https://github.com/avaer/upstreet">
-    <img src="https://img.shields.io/github/forks/avaer/upstreet?style=social" alt="forks - upstreet">
+  <a href="https://github.com/M3-org/upstreet-sdk">
+    <img src="https://img.shields.io/github/forks/M3-org/upstreet-sdk?style=social" alt="forks - upstreet">
   </a>
 </p>
 The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.

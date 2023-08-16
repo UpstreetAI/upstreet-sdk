@@ -1,4 +1,5 @@
 import asyncio
+import time
 import pytest
 from upstreet.main import Agent
 
@@ -21,15 +22,21 @@ async def test_agent_commands():
     await agent.emote("smile")
     # Wait for a specific condition related to smiling, if applicable
     print("Agent is smiling.")
-    await asyncio.sleep(1)
-
+    time.sleep(1)
     await agent.send_message_with_emote("smile", "Hello!")
-    await asyncio.sleep(1)
+    time.sleep(1)
+    print("Agent is happy.")
     await agent.set_emotion("happy")
-    await asyncio.sleep(1)
+    time.sleep(1)
+    print("Agent is sad.")
     await agent.send_message_with_emotion("Hello, world!", "happy")
-    await asyncio.sleep(1)
+    time.sleep(1)
+    print("Agent is angry.")
     await agent.move_to("tree")
-    await asyncio.sleep(1)
+    time.sleep(1)
+    print("Agent is at the tree.")
     assert await agent.check_connection() is True
     print("Agent commands test complete.")
+    await agent.disconnect()
+    print("Agent disconnected.")
+    time.sleep(1)

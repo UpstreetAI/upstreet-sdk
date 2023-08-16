@@ -15,7 +15,7 @@ setup(
     description="SDK for interacting with Upstreet.",
     long_description=long_description,  # added this line
     long_description_content_type="text/markdown",  # and this line
-    url="https://github.com/avaer/upstreet",
+    url="https://github.com/M3-org/upstreet-sdk",
     author="Moon",
     author_email="shawmakesmagic@gmail.com",
     license="MIT",
