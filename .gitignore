@@ -1,4 +1,4 @@
 node_modules
-./test-results
+test-results
 __pycache__
 .DS_Store
