@@ -14,4 +14,4 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
       - name: Run tests 🧪
-        run: npm install && npm run test
+        run: npm install -D @playwright/test && npm run test
