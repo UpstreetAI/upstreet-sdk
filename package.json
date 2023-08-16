@@ -1,6 +1,6 @@
 {
   "name": "upstreet",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "types": "src/index.d.ts",
   "description": "SDK for Upstreet, an open infinite 3D metaverse in the browser.",
   "main": "src/index.js",
