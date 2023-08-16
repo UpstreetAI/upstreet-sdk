@@ -9,13 +9,11 @@
     "cli": "node src/cli.js",
     "test": "npx playwright test"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Avaer Kazmer and Moon",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "playwright": "^1.37.0"
-  },
-  "devDependencies": {
+    "playwright": "^1.37.0",
     "@playwright/test": "^1.37.0",
     "jest": "^29.6.2",
     "jest-mock": "^29.6.2"
