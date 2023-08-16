@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "cli": "node src/cli.js",
-    "test": "playwright test"
+    "test": "npx playwright test"
   },
   "author": "",
   "license": "ISC",
