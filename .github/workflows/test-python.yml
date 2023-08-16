@@ -17,10 +17,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m install pytest pytest-asyncio
-        python -m install -r requirements.txt
-        python -m uninstall distribute
-        python -m install --upgrade setuptools wheel
+        python -m pip install pytest pytest-asyncio
+        python -m pip install -r requirements.txt
+        python -m pip uninstall distribute
+        python -m pip install --upgrade setuptools wheel
         playwright install
     - name: Running tests
       run: |
