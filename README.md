@@ -1,7 +1,7 @@
 # Upstreet SDK <a href="https://discord.gg/dRJ2ba46MJ"><img style="float: right" src="https://dcbadge.vercel.app/api/server/dRJ2ba46MJ" alt=""></a> <a href="https://github.com/M3-org/upstreet-sdk/stargazers"><img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/M3-org/upstreet-sdk?style=social" alt=""></a>
 
 <img src="resources/image1.jpg" width=100% />
-<p>
+<p align="center">
   <a href="https://github.com/M3-org/upstreet-sdk/actions/workflows/test.yml">
     <img src="https://github.com/M3-org/upstreet-sdk/actions/workflows/test.yml/badge.svg" alt="Lint and Test">
   </a>
@@ -18,7 +18,7 @@
     <img src="https://img.shields.io/github/forks/M3-org/upstreet-sdk?style=social" alt="forks - upstreet">
   </a>
 </p>
-The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.
+<p align="center">The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.</p>p>
 
 ## Quickstart
 
