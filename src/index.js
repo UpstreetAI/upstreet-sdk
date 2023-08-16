@@ -4,6 +4,7 @@ dotenv.config();
 
 // check if HEADLESS=true
 const headless = process.env.HEADLESS === 'true';
+const muted = process.env.MUTED === 'true';
 
 /**
  * Represents an Agent in the Upstreet multiplayer world.
@@ -15,6 +16,7 @@ export class Agent {
      */
     browser = null;
     page = null;
+    ready = false;
     /**
     * Connects the agent to the Upstreet multiplayer world.
     * @async
@@ -27,14 +29,18 @@ export class Agent {
             return true;
         }
         try {
-            this.browser = await chromium.launch({headless: headless});
+            this.browser = await chromium.launch({ headless: headless, args: muted ? ['--mute-audio'] : [] });
             this.page = await this.browser.newPage();
             await this.page.goto('https://upstreet.ai/g/');
+            // define a function called engineLoaded which sets ready to true
+            await this.page.exposeFunction('engineLoaded', () => {
+                this.ready = true;
+            });
         } catch (error) {
             console.error('An error occurred while connecting:', error);
         }
 
-        function readChat({
+        function receiveChat({
             playerName,
             playerId,
             command,
@@ -50,7 +56,7 @@ export class Agent {
             });
         }
 
-        await this.page.exposeFunction('readChat', readChat.bind(this));
+        await this.page.exposeFunction('receiveChat', receiveChat.bind(this));
     }
 
     /**
@@ -79,6 +85,10 @@ export class Agent {
             console.warn("The page was closed in the browser. Skipping message.");
             return false;
         }
+        if (!this.ready) {
+            console.warn("The engine is not ready. Skipping message.");
+            return false;
+        }
         return true;
     }
 
@@ -98,11 +108,11 @@ export class Agent {
     }) {
         if (!this.checkConnection()) return;
         await this.page.evaluate(({ command, commandArgument, message }) => {
-            if (!globalThis.writeChat) { // Uncommenting this check
-                console.warn('The globalThis.writeChat function does not exist. Skipping message.');
+            if (!globalThis.sendChat) { // Uncommenting this check
+                console.warn('The globalThis.sendChat function does not exist. Skipping message.');
                 return;
             }
-            return globalThis.writeChat({ command, commandArgument, message }); // Calling as globalThis.writeChat
+            return globalThis.sendChat({ command, commandArgument, message }); // Calling as globalThis.sendChat
         }, { command, commandArgument, message });
     }
 

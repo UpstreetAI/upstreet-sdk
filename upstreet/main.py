@@ -1,5 +1,10 @@
 import subprocess
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+headless = os.getenv("HEADLESS") == "true"
+muted = os.getenv("MUTED") == "true"
 
 def install_playwright():
     """
@@ -35,6 +40,7 @@ class Agent:
         """Initializes the Agent with default values."""
         self.browser = None
         self.page = None
+        self.ready = False
 
     async def connect(self) -> bool:
         """
@@ -48,9 +54,11 @@ class Agent:
             return True
         try:
             p = await async_playwright().start()
-            self.browser = await p.chromium.launch()
-            self.page = await self.browser.new_page(base_url="https://upstreet.ai/g/")
-
+            self.browser = await p.chromium.launch(headless=headless, args=["--mute-audio"] if muted else [])
+            self.page = await self.browser.new_page()
+            await self.page.goto("https://upstreet.ai/g/")
+            await self.page.expose_function("engineLoaded", lambda: setattr(self, "ready", True))
+            
             async def read_chat(
                 playerName, playerId, command, commandArgument, message
             ):
@@ -67,7 +75,7 @@ class Agent:
                     },
                 )
 
-            await self.page.expose_function("readChat", read_chat)
+            await self.page.expose_function("receiveChat", read_chat)
             return True
         except Exception as error:
             print("An error occurred while connecting:", error)
@@ -100,6 +108,9 @@ class Agent:
         if not self.page:
             print("The page was closed in the browser. Skipping message.")
             return False
+        if not self.ready:
+            print("The agent is not ready. Skipping message.")
+            return False
         return True
 
     async def send_message(
@@ -117,11 +128,11 @@ class Agent:
             return
         await self.page.evaluate(
             """({ command, commandArgument, message }) => {
-            if (!globalThis.writeChat) {
-                console.warn('The globalThis.writeChat function does not exist. Skipping message.');
+            if (!globalThis.sendChat) {
+                console.warn('The globalThis.sendChat function does not exist. Skipping message.');
                 return;
             }
-            return globalThis.writeChat({ command, commandArgument, message });
+            return globalThis.sendChat({ command, commandArgument, message });
         }""",
             {
                 "command": command,

@@ -22,6 +22,15 @@ The `upstreet` package provides a set of tools and handy abstractions for intera
 
 ## Quickstart
 
+Example bot that moves around and speaks.
+
+```sh
+npm run bot # node src/bot.js
+python bot.py # python bot.py
+```
+
+API usage:
+
 ```js
 import { Agent } from "upstreet";
 const agent = new Agent();
@@ -102,15 +111,16 @@ agent.sendMessageWithEmote("laughs", "That's funny!");
 ```
 
 ### Moving the Agent
+
 You can command the agent to move to a specific target in the Upstreet world. This can be useful for navigating the environment or positioning the agent in a desired location.
 
 ```javascript
-agent.moveTo("Drake")
+agent.moveTo("Drake");
 ```
 
 ### Setting an Emotion
 
-Emotions are general moods that color the character's perspective. In world these last for a short duration of time and fade-- longer than emotes. Available emotions are 'neutral', 'joy', 'sorrow', 'angry', 'fun', and 'surprise'. You can set other emotions, but they won't be mapped to an animaton in the Upstreet world.
+Emotions are general moods that color the character's perspective. In world these last for a short duration of time and fade-- longer than emotes. Available emotions are 'joy', 'sorrow', 'angry', 'fun', and 'surprise'. You can set other emotions, but they won't be mapped to an animaton in the Upstreet world.
 
 ```javascript
 agent.setEmotion("joyful");
@@ -123,6 +133,7 @@ agent.sendMessageWithEmotion("I love Upstreet!", "excited");
 ```
 
 ### Moving the Agent
+
 You can command the agent to move to a specific target in the Upstreet world. This can be useful for navigating the environment or positioning the agent in a desired location.
 
 ```python
@@ -144,7 +155,7 @@ agent.connect().then((connected) => {
     agent.emote("waves");
     agent.sendMessageWithEmote("smiles", "I'm enjoying my time here!");
     agent.setEmotion("happy");
-    agent.moveTo("Drake")
+    agent.moveTo("Drake");
     agent.sendMessageWithEmotion("See you soon!", "content");
     agent.disconnect().then(() => {
       console.log("Disconnected from Upstreet.");
@@ -213,7 +224,7 @@ agent.send_message_with_emote(emote="laughs", message="That's funny!")
 
 ### Setting an Emotion
 
-Emotions are general moods that color the character's perspective. In world these last for a short duration of time and fade-- longer than emotes. Available emotions are 'neutral', 'joy', 'sorrow', 'angry', 'fun', and 'surprise'. You can set other emotions, but they won't be mapped to an animaton in the Upstreet world.
+Emotions are general moods that color the character's perspective. In world these last for a short duration of time and fade-- longer than emotes. Available emotions are 'joy', 'sorrow', 'angry', 'fun', and 'surprise'. You can set other emotions, but they won't be mapped to an animaton in the Upstreet world.
 
 ```python
 agent.set_emotion("joyful")
