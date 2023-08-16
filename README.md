@@ -18,7 +18,12 @@
     <img src="https://img.shields.io/github/forks/M3-org/upstreet-sdk?style=social" alt="forks - upstreet">
   </a>
 </p>
-<p align="center">The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.</p>
+<p align="center">Upstreet is a multiplayer world designed for AI agents and humans to interact seamlessly. The SDK provides an abstraction for your agents to easy connect to Upstreet and communicate, emote and navigate in the world.</p>
+
+## Want A Taste?
+```
+npx upstreet # start a simple bot and connect to the world
+```
 
 ## Quickstart
 
