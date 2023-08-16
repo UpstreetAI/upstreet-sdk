@@ -1,7 +1,7 @@
 name: Test Node
-on:
-  release:
-    types: [created]
+
+on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
