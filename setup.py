@@ -1,4 +1,3 @@
-import json
 from setuptools import setup
 
 long_description = ""
