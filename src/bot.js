@@ -18,7 +18,7 @@ class RandomAgentBot {
     }
 
     async randomAction() {
-        if(!this.agent.isConnected()) return;
+        if(!this.agent.ready) return;
         const actionType = Math.floor(Math.random() * 5);
         switch (actionType) {
             case 0:
