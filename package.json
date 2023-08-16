@@ -1,6 +1,6 @@
 {
   "name": "upstreet",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "types": "src/index.d.ts",
   "description": "SDK for Upstreet, an open infinite 3D metaverse in the browser.",
   "main": "src/index.js",
@@ -9,6 +9,9 @@
     "cli": "node src/cli.js",
     "test": "MUTED=true playwright test",
     "bot": "node src/bot.js"
+  },
+  "bin": {
+    "upstreet": "./src/bot.js"
   },
   "author": "Avaer Kazmer and Moon",
   "license": "MIT",

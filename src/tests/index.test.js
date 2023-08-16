@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { Agent } from '../src/index.js'; // Update the path to the Agent class
+import { Agent } from '../index.js'; // Update the path to the Agent class
 
 async function waitForEngineReady(agent) {
     // Wait until the engine is ready by periodically checking the ready flag

@@ -1,2 +1,3 @@
 from .main import Agent
-__all__ = ['Agent']
+from .bot import Bot
+__all__ = ['Agent', 'Bot']

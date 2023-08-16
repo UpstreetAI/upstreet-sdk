@@ -1,6 +1,16 @@
 import asyncio
 import random
-from upstreet.main import Agent
+import importlib.util
+import os
+
+# Dynamically load Agent from main.py in the same directory as bot.py
+current_directory = os.path.dirname(os.path.abspath(__file__))
+main_module_path = os.path.join(current_directory, 'main.py')
+
+spec = importlib.util.spec_from_file_location('main', main_module_path)
+main_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(main_module)
+Agent = main_module.Agent
 
 
 class Bot:

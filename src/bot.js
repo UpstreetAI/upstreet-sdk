@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Agent } from './index.js';
 import { setIntervalAsync } from 'set-interval-async/dynamic'; // You might need to install this package
 
