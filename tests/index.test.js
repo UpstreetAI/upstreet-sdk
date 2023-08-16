@@ -56,3 +56,42 @@ test.describe('Agent class', () => {
         expect(mockWriteChat).toHaveBeenCalledWith({ command: 'MOVETO', commandArgument: 'Cafe' });
     });    
 });
+
+test.describe('Agent class without mocks', () => {
+    let agent;
+
+    test.beforeEach(async () => {
+        agent = new Agent();
+        await agent.connect();
+    });
+
+    test.afterEach(async () => {
+        await agent.disconnect();
+    });
+
+    test('should connect and disconnect without errors', async () => {
+        expect(agent.browser).toBeTruthy();
+        expect(agent.page).toBeTruthy();
+    });
+
+    test('should speak a message', async () => {
+        await agent.speak('test speak');
+        // You can add validation to check if the message was successfully sent
+    });
+
+    test('should send an emote', async () => {
+        await agent.emote('test emote');
+        // You can add validation to check if the emote was successfully sent
+    });
+
+    test('should send message with emotion', async () => {
+        await agent.sendMessageWithEmotion('test message', 'happy');
+        // You can add validation to check if the emotion was successfully set
+    });
+
+    test('should move to a target', async () => {
+        await agent.moveTo('Cafe');
+        // You can add validation to check if the agent successfully moved to the target
+    });
+});
+

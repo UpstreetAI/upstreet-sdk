@@ -22,9 +22,9 @@ export class Agent {
             return true;
         }
         try {
-            this.browser = await chromium.launch();
+            this.browser = await chromium.launch({headless: false});
             this.page = await this.browser.newPage();
-            await this.page.goto('https://upstreet.ai/g');
+            await this.page.goto('https://upstreet.ai/g/');
         } catch (error) {
             console.error('An error occurred while connecting:', error);
         }
@@ -181,6 +181,7 @@ export class Agent {
      * await agent.moveTo('thing1');
      * await agent.moveTo('123456');
      */
+
     async moveTo(target){
         await this.sendMessage({
             command: 'MOVETO',
