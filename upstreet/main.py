@@ -108,7 +108,7 @@ class Agent:
         if not self.page:
             print("The page was closed in the browser. Skipping message.")
             return False
-        if not self.ready:
+        if self.ready is False:
             print("The agent is not ready. Skipping message.")
             return False
         return True
