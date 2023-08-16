@@ -14,4 +14,4 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
       - name: Run tests 🧪
-        run: npm run test
+        run: npm i --also=dev && npm run test
