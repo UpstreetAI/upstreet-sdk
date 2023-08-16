@@ -1,4 +1,9 @@
 import { chromium } from 'playwright';
+import dotenv from 'dotenv';
+dotenv.config();
+
+// check if HEADLESS=true
+const headless = process.env.HEADLESS === 'true';
 
 /**
  * Represents an Agent in the Upstreet multiplayer world.
@@ -22,7 +27,7 @@ export class Agent {
             return true;
         }
         try {
-            this.browser = await chromium.launch({headless: false});
+            this.browser = await chromium.launch({headless: headless});
             this.page = await this.browser.newPage();
             await this.page.goto('https://upstreet.ai/g/');
         } catch (error) {

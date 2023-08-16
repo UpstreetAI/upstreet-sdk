@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { Agent } from '../src/index.js'; // Update the path to the Agent class
 import jest from 'jest-mock';
-
 test.describe('Agent class', () => {
     let agent;
 
