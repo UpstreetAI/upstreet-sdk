@@ -1,11 +1,23 @@
 # Upstreet <a href="https://discord.gg/dRJ2ba46MJ"><img style="float: right" src="https://dcbadge.vercel.app/api/server/dRJ2ba46MJ" alt=""></a> <a href="https://github.com/avaer/upstreet/stargazers"><img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/avaer/upstreet?style=social" alt=""></a>
 
 <img src="resources/image1.jpg" width=100% />
-
-[![Lint and Test](https://github.com/avaer/upstreet/actions/workflows/test.yml/badge.svg)](https://github.com/avaer/upstreet/actions/workflows/test.yml)[![npm version](https://img.shields.io/npm/v/upstreet.svg)](https://www.npmjs.com/package/upstreet/app)[![PyPI version](https://badge.fury.io/py/upstreet.svg)](https://badge.fury.io/py/upstreet)
-[![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/avaer/upstreet/blob/main/LICENSE)
-[![forks - upstreet](https://img.shields.io/github/forks/avaer/upstreet?style=social)](https://github.com/avaer/upstreet)
-
+<p>
+  <a href="https://github.com/avaer/upstreet/actions/workflows/test.yml">
+    <img src="https://github.com/avaer/upstreet/actions/workflows/test.yml/badge.svg" alt="Lint and Test">
+  </a>
+  <a href="https://www.npmjs.com/package/upstreet/app">
+    <img src="https://img.shields.io/npm/v/upstreet.svg" alt="npm version">
+  </a>
+  <a href="https://badge.fury.io/py/upstreet">
+    <img src="https://badge.fury.io/py/upstreet.svg" alt="PyPI version">
+  </a>
+  <a href="https://github.com/avaer/upstreet/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue" alt="License">
+  </a>
+  <a href="https://github.com/avaer/upstreet">
+    <img src="https://img.shields.io/github/forks/avaer/upstreet?style=social" alt="forks - upstreet">
+  </a>
+</p>
 The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.
 
 ## Quickstart
@@ -21,6 +33,8 @@ from upstreet import Agent
 agent = Agent()
 agent.speak("Hello world from python agent!")
 ```
+
+<img src="resources/image2.jpg" width=100% />
 
 # Documentation
 
@@ -240,7 +254,3 @@ else:
   <br />
 </a>
 <div align="center"><a href="https://3d.m3org.com/">https://m3org.com/</a></div>
-
-<br />
-
-<img src="resources/image2.jpg" width=100% />
