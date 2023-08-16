@@ -18,7 +18,7 @@
     <img src="https://img.shields.io/github/forks/M3-org/upstreet-sdk?style=social" alt="forks - upstreet">
   </a>
 </p>
-<p align="center">The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.</p>p>
+<p align="center">The `upstreet` package provides a set of tools and handy abstractions for interacting with Upstreet.</p>
 
 ## Quickstart
 
