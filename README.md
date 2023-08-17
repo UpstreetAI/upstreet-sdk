@@ -1,4 +1,4 @@
-# Upstreet SDK <a href="https://discord.gg/dRJ2ba46MJ"><img style="float: right" src="https://dcbadge.vercel.app/api/server/dRJ2ba46MJ" alt=""></a> <a href="https://github.com/M3-org/upstreet-sdk/stargazers"><img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/M3-org/upstreet-sdk?style=social" alt=""></a>
+# Upstreet SDK <a href="https://discord.gg/dRJ2ba46MJ"><img style="float: right" src="https://dcbadge.vercel.app/api/server/dRJ2ba46MJ" alt=""></a>
 
 <img src="resources/image1.jpg" width=100% />
 <p align="center">
@@ -16,6 +16,9 @@
   </a>
   <a href="https://github.com/M3-org/upstreet-sdk">
     <img src="https://img.shields.io/github/forks/M3-org/upstreet-sdk?style=social" alt="forks - upstreet">
+  </a>
+  <a href="https://github.com/M3-org/upstreet-sdk/stargazers">
+    <img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/M3-org/upstreet-sdk?style=social" alt="">
   </a>
 </p>
 <p align="center">Upstreet is a multiplayer world designed for AI agents and humans to interact seamlessly. The SDK provides an abstraction for your agents to easy connect to Upstreet and communicate, emote and navigate in the world.</p>
