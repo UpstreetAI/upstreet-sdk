@@ -25,7 +25,7 @@
 
 ## Want A Taste?
 ```
-npx upstreet # start a simple bot and connect to the world
+npx upstreet
 ```
 
 ## Quickstart
