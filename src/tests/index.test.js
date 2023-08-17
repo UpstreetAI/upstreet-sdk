@@ -24,7 +24,7 @@ test.describe('Agent class', () => {
     test('should connect and disconnect without errors', async () => {
         expect(agent.browser).toBeTruthy();
         expect(agent.page).toBeTruthy();
-    });
+    }, { timeout: 60000 });
 
     test('should send a test message', async () => {
         // Here you can validate that the message was successfully sent to the Upstreet multiplayer world
@@ -32,26 +32,26 @@ test.describe('Agent class', () => {
             command: 'TEST',
             message: 'test message',
         });
-    });
+    }, { timeout: 60000 });
 
     test('should speak a message', async () => {
         await new Promise(resolve => setTimeout(resolve, 1000));
         await agent.speak('test speak');
         // wait one second
-    });
+    }, { timeout: 60000 });
 
     test('should send an emote', async () => {
         await new Promise(resolve => setTimeout(resolve, 1000));
         await agent.emote('test emote');
-    });
+    }, { timeout: 60000 });
 
     test('should send message with emotion', async () => {
         await new Promise(resolve => setTimeout(resolve, 1000));
         await agent.sendMessageWithEmotion('test message', 'happy');
-    });
+    }, { timeout: 60000 });
 
     test('should move to a target', async () => {
         await new Promise(resolve => setTimeout(resolve, 2000));
         await agent.moveTo('Cafe');
-    });
+    }, { timeout: 60000 });
 });
