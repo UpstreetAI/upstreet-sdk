@@ -11,7 +11,7 @@ install_requires = []
 
 setup(
     name="upstreet",
-    version="1.13.0",
+    version="1.13.1",
     description="SDK for interacting with Upstreet.",
     long_description=long_description,  # added this line
     long_description_content_type="text/markdown",  # and this line
