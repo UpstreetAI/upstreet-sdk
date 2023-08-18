@@ -9,7 +9,7 @@ const muted = process.env.MUTED === 'true';
 /**
  * Represents an Agent in the Upstreet multiplayer world.
  */
-export class Agent {
+export class Agent extends EventTarget {
     /**
      * @property {import('playwright').Browser|null} browser - The browser instance.
      * @property {import('playwright').Page|null} page - The page instance.
@@ -200,6 +200,13 @@ export class Agent {
     async moveTo(target){
         await this.sendMessage({
             command: 'MOVETO',
+            commandArgument: target,
+        })
+    }
+
+    async lookAt(target){
+        await this.sendMessage({
+            command: 'LOOKAT',
             commandArgument: target,
         })
     }
