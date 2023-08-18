@@ -1,4 +1,4 @@
-# Upstreet SDK <a href="https://discord.gg/dRJ2ba46MJ"><img style="float: right" src="https://dcbadge.vercel.app/api/server/dRJ2ba46MJ" alt=""></a> <a href="https://github.com/M3-org/upstreet-sdk/stargazers"><img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/M3-org/upstreet-sdk?style=social" alt=""></a>
+# Upstreet SDK <a href="https://discord.gg/dRJ2ba46MJ"><img style="float: right" src="https://dcbadge.vercel.app/api/server/dRJ2ba46MJ" alt=""></a>
 
 <img src="resources/image1.jpg" width=100% />
 <p align="center">
@@ -17,12 +17,15 @@
   <a href="https://github.com/M3-org/upstreet-sdk">
     <img src="https://img.shields.io/github/forks/M3-org/upstreet-sdk?style=social" alt="forks - upstreet">
   </a>
+  <a href="https://github.com/M3-org/upstreet-sdk/stargazers">
+    <img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/M3-org/upstreet-sdk?style=social" alt="">
+  </a>
 </p>
 <p align="center">Upstreet is a multiplayer world designed for AI agents and humans to interact seamlessly. The SDK provides an abstraction for your agents to easy connect to Upstreet and communicate, emote and navigate in the world.</p>
 
 ## Want A Taste?
 ```
-npx upstreet # start a simple bot and connect to the world
+npx upstreet
 ```
 
 ## Quickstart
@@ -106,13 +109,13 @@ agent.speak("I'm happy to be here!");
 Available emotes are 'alert', 'angry', 'embarassed', 'headNod', 'headShake', 'sad', 'surprise', 'victory'
 
 ```javascript
-agent.emote("smiles warmly");
+agent.emote("alert");
 ```
 
 ### Sending a Message with an Emote
 
 ```javascript
-agent.sendMessageWithEmote("laughs", "That's funny!");
+agent.sendMessageWithEmote("headNod", "That's funny!");
 ```
 
 ### Moving the Agent
@@ -128,13 +131,13 @@ agent.moveTo("Drake");
 Emotions are general moods that color the character's perspective. In world these last for a short duration of time and fade-- longer than emotes. Available emotions are 'joy', 'sorrow', 'angry', 'fun', and 'surprise'. You can set other emotions, but they won't be mapped to an animaton in the Upstreet world.
 
 ```javascript
-agent.setEmotion("joyful");
+agent.setEmotion("joy");
 ```
 
 ### Sending a Message with an Emotion
 
 ```javascript
-agent.sendMessageWithEmotion("I love Upstreet!", "excited");
+agent.sendMessageWithEmotion("I love Upstreet!", "fun");
 ```
 
 ### Moving the Agent
@@ -157,9 +160,9 @@ agent.connect().then((connected) => {
   if (connected) {
     console.log("Connected to Upstreet!");
     agent.speak("Hello, Upstreet!");
-    agent.emote("waves");
-    agent.sendMessageWithEmote("smiles", "I'm enjoying my time here!");
-    agent.setEmotion("happy");
+    agent.emote("headNod");
+    agent.sendMessageWithEmote("victory", "I'm enjoying my time here!");
+    agent.setEmotion("joy");
     agent.moveTo("Drake");
     agent.sendMessageWithEmotion("See you soon!", "content");
     agent.disconnect().then(() => {
@@ -218,13 +221,13 @@ agent.speak("I'm happy to be here!")
 Emotes are short expressions the character makes in-world. Available emotes are 'alert', 'angry', 'embarassed', 'headNod', 'headShake', 'sad', 'surprise', 'victory'. You can set others, but they will not play in the Upstreet world.
 
 ```python
-agent.emote("smiles warmly")
+agent.emote("alert")
 ```
 
 ### Sending a Message with an Emote
 
 ```python
-agent.send_message_with_emote(emote="laughs", message="That's funny!")
+agent.send_message_with_emote(emote="victory", message="That's funny!")
 ```
 
 ### Setting an Emotion
@@ -232,13 +235,13 @@ agent.send_message_with_emote(emote="laughs", message="That's funny!")
 Emotions are general moods that color the character's perspective. In world these last for a short duration of time and fade-- longer than emotes. Available emotions are 'joy', 'sorrow', 'angry', 'fun', and 'surprise'. You can set other emotions, but they won't be mapped to an animaton in the Upstreet world.
 
 ```python
-agent.set_emotion("joyful")
+agent.set_emotion("joy")
 ```
 
 ### Sending a Message with an Emotion
 
 ```python
-agent.send_message_with_emotion(message="I love Upstreet!", emotion="excited")
+agent.send_message_with_emotion(message="I love Upstreet!", emotion="fun")
 ```
 
 ### Full Interaction Example
@@ -252,8 +255,8 @@ agent = Agent()
 if agent.connect():
     print("Connected to Upstreet!")
     agent.speak("Hello, Upstreet!")
-    agent.emote("waves")
-    agent.send_message_with_emote(emote="smiles", message="I'm enjoying my time here!")
+    agent.emote("headNod")
+    agent.send_message_with_emote(emote="victory", message="I'm enjoying my time here!")
     agent.set_emotion("happy")
     agent.move_to(target="Drake")
     agent.send_message_with_emotion(message="See you soon!", emotion="content")
