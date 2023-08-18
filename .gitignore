@@ -2,3 +2,6 @@ node_modules
 test-results
 __pycache__
 .DS_Store
+upstreet.egg-info
+build
+dist
