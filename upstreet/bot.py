@@ -2,6 +2,7 @@ import asyncio
 import random
 import importlib.util
 import os
+from events import Events
 
 # Dynamically load Agent from main.py in the same directory as bot.py
 current_directory = os.path.dirname(os.path.abspath(__file__))
@@ -24,6 +25,10 @@ class Bot:
             self.send_message_with_emotion,
             self.move_to,
         ]
+        self.agent.events.on_event += self.on_event
+
+    def on_event(self, event):
+        print('Received event: ' + str(event))
 
     async def speak(self):
         message = "Hello, world! Rock on!"

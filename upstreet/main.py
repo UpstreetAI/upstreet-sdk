@@ -1,6 +1,8 @@
 import subprocess
 from dotenv import load_dotenv
 import os
+from events import Events
+
 load_dotenv()
 
 headless = os.getenv("HEADLESS") == "true"
@@ -41,6 +43,7 @@ class Agent:
         self.browser = None
         self.page = None
         self.ready = False
+        self.events = Events()
 
     async def connect(self) -> bool:
         """
@@ -64,7 +67,7 @@ class Agent:
             ):
                 """Callback function to read chat messages."""
                 # Assuming an emit method on self
-                self.emit(
+                self.events.on_event(
                     "message",
                     {
                         "playerName": playerName,
@@ -196,3 +199,12 @@ class Agent:
             target (str): The target location to move to.
         """
         await self.send_message("MOVETO", commandArgument=target)
+
+    async def look_at(self, target):
+        """
+        Asynchronously sends a LOOKAT command to look at the given target.
+
+        Args:
+            target (str): The target location to look at.
+        """
+        await self.send_message("LOOKAT", commandArgument=target)
