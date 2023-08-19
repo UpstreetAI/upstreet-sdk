@@ -42,13 +42,21 @@ API usage:
 ```js
 import { Agent } from "upstreet";
 const agent = new Agent();
-agent.speak("Hello world from js agent!");
+
+agent.connect().then(async (connected) => {
+  if (connected) {
+    await agent.speak("Hello world from js agent!");
+  } else {
+    console.log("Failed to connect.");
+  }
+});
 ```
 
 ```python
 from upstreet import Agent
 agent = Agent()
-agent.speak("Hello world from python agent!")
+asyncio.run(agent.connect()) # connect is async
+asyncio.run(agent.speak("Hello world from python agent!"))
 ```
 
 <img src="resources/image2.jpg" width=100% />
