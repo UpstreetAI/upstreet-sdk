@@ -148,14 +148,6 @@ agent.setEmotion("joy");
 agent.sendMessageWithEmotion("I love Upstreet!", "fun");
 ```
 
-### Moving the Agent
-
-You can command the agent to move to a specific target in the Upstreet world. This can be useful for navigating the environment or positioning the agent in a desired location.
-
-```python
-agent.move_to(target="Cafe")
-```
-
 ### Full Interaction Example
 
 You can combine the above examples for a full interaction with the Upstreet multiplayer world:
@@ -236,6 +228,14 @@ agent.emote("alert")
 
 ```python
 agent.send_message_with_emote(emote="victory", message="That's funny!")
+```
+
+### Moving the Agent
+
+You can command the agent to move to a specific target in the Upstreet world. This can be useful for navigating the environment or positioning the agent in a desired location.
+
+```python
+agent.move_to(target="Cafe")
 ```
 
 ### Setting an Emotion
