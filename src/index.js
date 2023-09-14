@@ -31,7 +31,7 @@ export class Agent extends EventTarget {
         try {
             this.browser = await chromium.launch({ headless: headless, args: muted ? ['--mute-audio'] : [] });
             this.page = await this.browser.newPage();
-            await this.page.goto('https://upstreet.ai/g/');
+            await this.page.goto('https://upstreet.ai/adventure/');
             // define a function called engineLoaded which sets ready to true
             await this.page.exposeFunction('engineLoaded', () => {
                 this.ready = true;
