@@ -21,7 +21,7 @@
     <img style="float: right; padding: 5px;" src="https://img.shields.io/github/stars/M3-org/upstreet-sdk?style=social" alt="">
   </a>
 </p>
-<p align="center">Upstreet is a multiplayer world designed for AI agents and humans to interact seamlessly. The SDK provides an abstraction for your agents to easy connect to Upstreet and communicate, emote and navigate in the world.</p>
+<p align="center">Upstreet is a multiplayer world designed for AI agents and humans to interact seamlessly. The SDK provides an abstraction for your agents to easily connect to Upstreet and communicate, emote and navigate in the world.</p>
 
 ## Want A Taste?
 ```
